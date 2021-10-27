@@ -58,9 +58,15 @@ Use `git config` with the `--global` option to configure a user name, email addr
 
 #### a. Setting up a Username and Email
 
+- For the ones that already have done that , you can always check your global configuration by typing:
+
 ```bash
-$ git config --global user.name "github-username"
-$ git config --global user.email "github-email@mail.com"
+git config --list --show-origin
+
+```
+```bash
+git config --global user.name "github-username"
+git config --global user.email "github-email@mail.com"
 ```
 
 #### b. Configure Line Breaks 
@@ -69,16 +75,16 @@ $ git config --global user.email "github-email@mail.com"
 
 * For Windows
     ```shell
-    $ git config --global core.autocrlf true
+    git config --global core.autocrlf true
     ```
 * For MacOS and Linux
     ```shell
-    $ git config --global core.autocrlf input
+    git config --global core.autocrlf input
     ```
 
 #### c. Check Global Settings
 ```shell
-$ git config --global --list
+ git config --global --list
 ```
 
 
@@ -94,20 +100,20 @@ Two researchers/programmers are developing code to analyse the inflammation data
 
 #### a. Make a Directory on the Desktop
 ```shell
-$ mkdir ~/Desktop/patients
+ mkdir ~/Desktop/patients
 ```
 
 #### b. Initialize the Repository
 
 ```shell
-$ cd ./patients/
-$  git init
+cd ./patients/
+git init
 ```
 
 #### c. Check Content and Status
 ```shell
-$ ls -a
-$ git status
+ls -a
+git status
 ```
 
 > Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
@@ -123,7 +129,7 @@ $ git status
 * Create and modify file
 
     ```shell
-    $ nano count-lines.py
+    nano count-lines.py
     ```
 * Type code
 
@@ -138,31 +144,31 @@ $ git status
     ```
 * Check that the file is in the repository
     ```shell
-    $ ls
+     ls
     ```
 #### b. Test the Script
 
 ```shell
     # check Python is accessible from Git bash
-    $ python --version
+     python --version
 ```
 
 ```shell
-$ echo "this is a line" | python count-lines.py 
+ echo "this is a line" | python count-lines.py 
 ```
 
 ```shell
-$ echo -e "this is a line, \n thi is another line" | python count-lines.py 
+ echo -e "this is a line, \n thi is another line" | python count-lines.py 
 ```
 
 #### c. Check Git Status
 ```shell
-$ git status
+ git status
 ```
 
 #### d. Start Tacking a File Using git add-commit
 ```shell
-$ git add count-lines.py
+ git add count-lines.py
 ```
 
 > Ignore the warning about replacing LF with CRLF. |
@@ -200,7 +206,7 @@ git commit -m "create  script count-lines.py"
     ```
 * check status
     ```shell
-    $ git status
+     git status
     ```
     > Explanation: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desiable because is up to the user to decide when and what to commit to the repository's history.
     
@@ -208,7 +214,7 @@ git commit -m "create  script count-lines.py"
 #### b. Check Differences (review changes)
 
 ```shell
-$ git diff 
+ git diff 
 ```
 
 > Shows the difference between the current state and the most recently saved version (last commit)
@@ -221,8 +227,8 @@ git add count-lines.py
 #### d. Diff vs Diff --staged
 
 ```shell
-$ git diff [do not show the difference with staged change]
-$ git diff --staged [shows the difference with staged change]
+git diff [do not show the difference with staged change]
+git diff --staged [shows the difference with staged change]
 ```
 
 > `git diff`: shows the difference between no-staged changes and the previous commit. `git diff --staged`: shows the difference between staged-changes and the previous commit.
@@ -241,7 +247,7 @@ git commit -m "add description of expected input".
 **Solutions:**
 
 ```shell
-$ mkdir treatments
+mkdir treatments
 ```
 
 * check the status and add the directory. No changes are added
@@ -256,20 +262,20 @@ $ mkdir treatments
 #### b. Create Files on the Directory and Add Changes
 
 ```shell
-$ touch treatments/aspirin.txt treatments/advil.txt
+touch treatments/aspirin.txt treatments/advil.txt
 ```
 
 #### c. Stage All Files in the Directory
 
 ```shell
-$ git add treatments/
-$ git status
+git add treatments/
+git status
 ```
 
 #### d. Commit
 
 ```shell
-$ git commit -m "add some treatments for patients"
+git commit -m "add some treatments for patients"
 ```
 
 ### 6. IGNORING THINGS [6 mins]
@@ -279,8 +285,8 @@ Say you have files you don't want to tack with git.
 > We'll create some fictitious data files for now.
 
 ```shell
-$ mkdir data
-$ touch data/a.dat data/b.dat big-data.zip
+mkdir data
+touch data/a.dat data/b.dat big-data.zip
 ```
 
 > **Important:** git is not good for tracking large dataset, especially binary files. This is because binary files will be fully copied to the repository history when committed, and changes to tracked binary files will cause Git to save a copy file of the file for every commit. Therefore, increasing the size of the repository rapidly.
@@ -289,7 +295,7 @@ $ touch data/a.dat data/b.dat big-data.zip
 > At the root of the repository, create a `.gitignore` file, and type in it the path and name of all files and directories you don't want to tack.
 
 ```shell
-$ nano .gitignore
+nano .gitignore
 ```
 Type:
 
@@ -311,7 +317,7 @@ data/
 
 #### c. Check What's Being Ignored
 ```shell
-$ git status --ignored
+git status --ignored
 ```
 
 > **Questions?**
@@ -328,9 +334,9 @@ $ git status --ignored
 
 #### a. Checking the Log
 ```shell
-$ git log
-$ git log --graph [optional]
-$ git log --oneline
+git log
+git log --graph [optional]
+git log --oneline
 ```
 
 > Explanation of output: unique ID and list of commit messages.
@@ -347,7 +353,7 @@ $ git log --oneline
 #### c. Add more to the Documentation of count-lines.py
 
 ```shell
-$ nano count-lines.py
+nano count-lines.py
 ```
 ```python
 # Output: a string with the total number of lines
@@ -355,13 +361,13 @@ $ nano count-lines.py
 
 #### d. Check Differences Compared to HEAD
 ```shell
-$ git diff HEAD count-lines.py
+git diff HEAD count-lines.py
 ```
 > This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use **HEAD** to check the difference between the current state of `count-lines.py` (in the working directory) and previous commits.
 
 ```shell
-$ git diff HEAD~1 count-lines.py 
-$ git diff HEAD~3 count-lines.py
+git diff HEAD~1 count-lines.py 
+git diff HEAD~3 count-lines.py
 ```
 > `HEAD~1` compares with the last commit. `HEAD~3` compares to 3 commits ago. 
 
@@ -373,11 +379,11 @@ Usage:
 **git diff** `<start-commit-SHA>` **HEAD** `<file>`
 
 ```shell
-$ git log --oneline # [copy an ID to compare]
+git log --oneline # [copy an ID to compare]
 ```
 ```shell
-$ git diff commit-id count-lines.py # [use ID for first commit]
-$ git diff commit-id HEAD count-lines.py # [use ID for first commit]
+git diff commit-id count-lines.py # [use ID for first commit]
+git diff commit-id HEAD count-lines.py # [use ID for first commit]
 ```
 > Wrap up this section by showing an illustration of the git history tree
 
@@ -388,27 +394,27 @@ $ git diff commit-id HEAD count-lines.py # [use ID for first commit]
 > BEFORE THAT: if you haven't add a descripton for `Output` to count-lines.py. Do that using `nano`, and commit the changes.
 
 ```shell
-$ nano count-lines.py
+ nano count-lines.py
 ```
 ```python
 # Output: a string with the total number of lines
 ```
 
 ```shell
-$ git add count-lines.py
-$ git commit -m "add description of output"
+git add count-lines.py
+git commit -m "add description of output"
 ```
 
 #### a. Revert to Older Versions Using an Identifier. 
 >  One way to revert changes is using the commit ID. Restore latest version in the history tree using  the `checkout` command.
 
 ```shell
-$ git log --oneline # [copy ID of "description input"]
+git log --oneline # [copy ID of "description input"]
 ```
 
 ```shell
-$ git checkout <id--commit> count-lines.py # [will revert changes, use firts commit ID]
-$ cat count-lines.py
+git checkout <id--commit> count-lines.py # [will revert changes, use firts commit ID]
+cat count-lines.py
 ```
 
 #### b. Restore the version without any Docstring [Optional]
@@ -416,7 +422,7 @@ $ cat count-lines.py
 > **Additional example, used only if on schedule. Ask particpants to do them by themselves.**
 
 ```shell
-$ git checkout f9d7e9c count-lines.py  
+git checkout f9d7e9c count-lines.py  
 ```
 
 > **Changes go to the staging area; they are not committed.** However, we always can go back to any version we have committed. To go back to the newest version, check out to HEAD.
@@ -424,15 +430,15 @@ $ git checkout f9d7e9c count-lines.py
 * check out to HEAD
 
     ```shell
-    $ git checkout HEAD count-lines.py 
-    $ cat count-lines.py [notice the file is back to the newest committed version]
+    git checkout HEAD count-lines.py 
+    cat count-lines.py [notice the file is back to the newest committed version]
     ```
 
 * Add and Commit the newest version
 
     ```shell
-    $ git add count-lines.py 
-    $ git commit -m "update author's name"
+    git add count-lines.py 
+    git commit -m "update author's name"
     ```
 ------
 
@@ -453,14 +459,14 @@ $ git checkout f9d7e9c count-lines.py
     1. Create and initialize a repository called ‘my-repo’. 
 
         ```shell
-        $ mkdr my-repo
-        $ cd my-repo/
-        $ git init
+        mkdr my-repo
+        cd my-repo/
+        git init
         ```
     2. Create a files `research.txt` with the sentence: **Science is awesome**
 
         ```shell
-        $ nano research.txt
+        nano research.txt
         ```
         Inside the file type the following and save changes:
         ```shell
@@ -469,12 +475,12 @@ $ git checkout f9d7e9c count-lines.py
     3. Add and commit the changes. Remember to use a meaning message.
         
         ```shell
-        $ git add research.txt
-        $ git commit -m "add awesome science"
+        git add research.txt
+        git commit -m "add awesome science"
         ```
     4. Change sentence in ‘research.txt’ to: **Science is messy**
         ```shell
-        $ nano research.txt
+        nano research.txt
         ```
         Change text to this and save changes:
         ```shell
@@ -482,23 +488,23 @@ $ git checkout f9d7e9c count-lines.py
         ```
     5. Add and commit.
         ```shell
-        $ git add research.txt
-        $ git commit -m "change to messy science"
+        git add research.txt
+        git commit -m "change to messy science"
         ```
     6. Revert changes to the very first version of ‘research.txt’, and commit.
         ```shell
-        $ git log --oneline # find and copy ID of the firts commit
-        $ git checkout <commit-ID> research.txt # revert changes 
-        $ cat reseach.txt # check version has been recovered
-        $ git commit -m "recover awesome science" # commit recovered version
+        git log --oneline # find and copy ID of the firts commit
+        git checkout <commit-ID> research.txt # revert changes 
+        cat reseach.txt # check version has been recovered
+        git commit -m "recover awesome science" # commit recovered version
         ```
 
 * **Check your history log – you should have 3 commits**
 
     ```shell
-    $ git log # print full log
-    $ git log --graph # print log as text-graph
-    $ git log --oneline # print short version of log
+    git log # print full log
+    git log --graph # print log as text-graph
+    git log --oneline # print short version of log
     ```
 --------
 
@@ -520,25 +526,25 @@ To connect via SSH do the following:
 
     ```shell
     # move to Home directory
-    $ cd ~
+    cd ~
     # create key
-    $ ssh-keygen -t ed25519 -C "your_email@example.com"
+    ssh-keygen -t ed25519 -C "your_email@example.com"
     # save to the default location and file name: ~/.ssh/id_ed25519
     ```
 * Check the keys have been created
 
     ```shell
-    $ ls ~/.ssh/
+    ls ~/.ssh/
     ```
 
 * Start the `ssh-agent` and add private key to agent:
 
     ```shell
     # start agent
-    $ eval "$(ssh-agent -s)"
+    eval "$(ssh-agent -s)"
     
     # add private key
-    $ ssh-add ~/.ssh/id_ed25519
+    ssh-add ~/.ssh/id_ed25519
     ```
     > Instruct SSH to use key files in different locations: `ssh -i <path/private/keyfile>`
 
@@ -548,7 +554,7 @@ Mac and Linux user don't have to worry about this.
 * Copy public key to GitHub:
 
     ```shell
-    $ clip < .ssh/id_ed25519.pub
+    clip < .ssh/id_ed25519.pub
     ```
 
 * Go to GitHub, explain the basics of the interface and add the SSH key.
@@ -558,7 +564,7 @@ Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
 * Test SSH connection
 
     ```shell
-    $ ssh -T git@github.com
+    ssh -T git@github.com
     ```
 
 > More information on working with (SSH keys and GitHub.)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh]
@@ -577,14 +583,14 @@ Move back to the repo directory: `~/Desktop/
 
 * Connect to remote
     ```shell
-    $ git remote add origin git@github.com:<user-name>/<repo-name>.git
+    git remote add origin git@github.com:<user-name>/<repo-name>.git
     ```
 
 * Check that remote was added
     ```shell
-    $ git remote -v
-    $ git branch -M main # [will change the name of the main branch of the repo to make it more friendly]
-    $ git push -u origin main 
+    git remote -v
+    git branch -M main # [will change the name of the main branch of the repo to make it more friendly]
+    git push -u origin main 
     ```
 
 #### c. Check the Content Repositoy is in GitHub
@@ -592,7 +598,7 @@ Move back to the repo directory: `~/Desktop/
 
 * To pull changes from the remote:
     ```shell
-    $ git pull origin main
+    git pull origin main
     ``` 
 
 > Questions?
@@ -633,8 +639,8 @@ Move back to the repo directory: `~/Desktop/
 > Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-checkin.git`
 
 ```shell
-$ cd ~/Desktop
-$ git clone https://github.com/manuGil/workshop-check-in.git
+cd ~/Desktop
+git clone https://github.com/manuGil/workshop-check-in.git
 ```
 
 #### b. Create a Check-in file
@@ -642,15 +648,15 @@ $ git clone https://github.com/manuGil/workshop-check-in.git
 > Make a copy of `check-in/template.md` in the same Directory; remane the file using a unique name (e.g. three first laters of your name and the last two digits of your phone number. Mind the file extension ".md"
 
 ```shell
-$ cd workshop-check-in
-$ cp check-in/template.md check-in/<my-nickname-file>.md
+cd workshop-check-in
+cp check-in/template.md check-in/<my-nickname-file>.md
 ```
 
 #### c. Edit your Check-in file 
 > Edit `<my-name-file>.md` and change the content. You'll see some hints
 
 ```shell
-$ nano check-in/<my-name-file>.md
+nano check-in/<my-name-file>.md
 ```
 
 #### d. Pull, Add, Commit, and Push to the remote
@@ -665,10 +671,10 @@ A basic collaborative workflow using git is:
 **Example:**
 
 ```shell
-$ git pull origin main
-$ git add .
-$ git commit -m "check manuel in"
-$ git push origin main #[This works only if participants are added to the repository as collaborators]
+git pull origin main
+git add .
+git commit -m "check manuel in"
+git push origin main #[This works only if participants are added to the repository as collaborators]
 ```
 > Ask a participant to push their changes to remote, and show the changes int the GitHuh GUI.
 

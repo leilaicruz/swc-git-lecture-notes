@@ -686,8 +686,14 @@ Use <code class="docutils literal notranslate"><span class="pre">git</span> <spa
 </div>
 <div class="section" id="a-setting-up-a-username-and-email">
 <h4><span class="section-number">1.2.2.2. </span>a. Setting up a Username and Email<a class="headerlink" href="#a-setting-up-a-username-and-email" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;github-username&quot;</span>
-$ git config --global user.email <span class="s2">&quot;github-email@mail.com&quot;</span>
+<ul class="simple">
+<li><p>For the ones that already have done that , you can always check your global configuration by typing:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --list --show-origin
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;github-username&quot;</span>
+git config --global user.email <span class="s2">&quot;github-email@mail.com&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -698,12 +704,12 @@ $ git config --global user.email <span class="s2">&quot;github-email@mail.com&qu
 </div></blockquote>
 <ul>
 <li><p>For Windows</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global core.autocrlf <span class="nb">true</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global core.autocrlf <span class="nb">true</span>
 </pre></div>
 </div>
 </li>
 <li><p>For MacOS and Linux</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global core.autocrlf input
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global core.autocrlf input
 </pre></div>
 </div>
 </li>
@@ -711,7 +717,7 @@ $ git config --global user.email <span class="s2">&quot;github-email@mail.com&qu
 </div>
 <div class="section" id="c-check-global-settings">
 <h4><span class="section-number">1.2.2.4. </span>c. Check Global Settings<a class="headerlink" href="#c-check-global-settings" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global --list
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> git config --global --list
 </pre></div>
 </div>
 </div>
@@ -729,21 +735,21 @@ Two researchers/programmers are developing code to analyse the inflammation data
 </div></blockquote>
 <div class="section" id="a-make-a-directory-on-the-desktop">
 <h4><span class="section-number">1.2.3.1. </span>a. Make a Directory on the Desktop<a class="headerlink" href="#a-make-a-directory-on-the-desktop" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/Desktop/patients
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> mkdir ~/Desktop/patients
 </pre></div>
 </div>
 </div>
 <div class="section" id="b-initialize-the-repository">
 <h4><span class="section-number">1.2.3.2. </span>b. Initialize the Repository<a class="headerlink" href="#b-initialize-the-repository" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ./patients/
-$  git init
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./patients/
+git init
 </pre></div>
 </div>
 </div>
 <div class="section" id="c-check-content-and-status">
 <h4><span class="section-number">1.2.3.3. </span>c. Check Content and Status<a class="headerlink" href="#c-check-content-and-status" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -a
-$ git status
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls -a
+git status
 </pre></div>
 </div>
 <blockquote>
@@ -763,7 +769,7 @@ $ git status
 </div></blockquote>
 <ul>
 <li><p>Create and modify file</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano count-lines.py
 </pre></div>
 </div>
 </li>
@@ -779,7 +785,7 @@ $ git status
 </div>
 </li>
 <li><p>Check that the file is in the repository</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> ls
 </pre></div>
 </div>
 </li>
@@ -788,25 +794,25 @@ $ git status
 <div class="section" id="b-test-the-script">
 <h4><span class="section-number">1.2.4.2. </span>b. Test the Script<a class="headerlink" href="#b-test-the-script" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># check Python is accessible from Git bash</span>
-    $ python --version
+     python --version
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;this is a line&quot;</span> <span class="p">|</span> python count-lines.py 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">echo</span> <span class="s2">&quot;this is a line&quot;</span> <span class="p">|</span> python count-lines.py 
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> -e <span class="s2">&quot;this is a line, \n thi is another line&quot;</span> <span class="p">|</span> python count-lines.py 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nb">echo</span> -e <span class="s2">&quot;this is a line, \n thi is another line&quot;</span> <span class="p">|</span> python count-lines.py 
 </pre></div>
 </div>
 </div>
 <div class="section" id="c-check-git-status">
 <h4><span class="section-number">1.2.4.3. </span>c. Check Git Status<a class="headerlink" href="#c-check-git-status" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> git status
 </pre></div>
 </div>
 </div>
 <div class="section" id="d-start-tacking-a-file-using-git-add-commit">
 <h4><span class="section-number">1.2.4.4. </span>d. Start Tacking a File Using git add-commit<a class="headerlink" href="#d-start-tacking-a-file-using-git-add-commit" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> git add count-lines.py
 </pre></div>
 </div>
 <blockquote>
@@ -852,7 +858,7 @@ The file will have its original line endings in your working directory |</strong
 </div>
 </li>
 <li><p>check status</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> git status
 </pre></div>
 </div>
 <blockquote>
@@ -862,7 +868,7 @@ The file will have its original line endings in your working directory |</strong
 </ul>
 <div class="section" id="b-check-differences-review-changes">
 <h4><span class="section-number">1.2.5.1. </span>b. Check Differences (review changes)<a class="headerlink" href="#b-check-differences-review-changes" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> git diff 
 </pre></div>
 </div>
 <blockquote>
@@ -877,8 +883,8 @@ The file will have its original line endings in your working directory |</strong
 </div>
 <div class="section" id="d-diff-vs-diff-staged">
 <h4><span class="section-number">1.2.5.3. </span>d. Diff vs Diff –staged<a class="headerlink" href="#d-diff-vs-diff-staged" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff <span class="o">[</span><span class="k">do</span> not show the difference with staged change<span class="o">]</span>
-$ git diff --staged <span class="o">[</span>shows the difference with staged change<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git diff <span class="o">[</span><span class="k">do</span> not show the difference with staged change<span class="o">]</span>
+git diff --staged <span class="o">[</span>shows the difference with staged change<span class="o">]</span>
 </pre></div>
 </div>
 <blockquote>
@@ -898,7 +904,7 @@ $ git diff --staged <span class="o">[</span>shows the difference with staged cha
 <div><p>Ask students to create a new directory, try to stage it, and check the status.</p>
 </div></blockquote>
 <p><strong>Solutions:</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir treatments
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir treatments
 </pre></div>
 </div>
 <ul>
@@ -916,20 +922,20 @@ $ git status
 </div>
 <div class="section" id="b-create-files-on-the-directory-and-add-changes">
 <h4><span class="section-number">1.2.6.2. </span>b. Create Files on the Directory and Add Changes<a class="headerlink" href="#b-create-files-on-the-directory-and-add-changes" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ touch treatments/aspirin.txt treatments/advil.txt
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch treatments/aspirin.txt treatments/advil.txt
 </pre></div>
 </div>
 </div>
 <div class="section" id="c-stage-all-files-in-the-directory">
 <h4><span class="section-number">1.2.6.3. </span>c. Stage All Files in the Directory<a class="headerlink" href="#c-stage-all-files-in-the-directory" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add treatments/
-$ git status
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add treatments/
+git status
 </pre></div>
 </div>
 </div>
 <div class="section" id="d-commit">
 <h4><span class="section-number">1.2.6.4. </span>d. Commit<a class="headerlink" href="#d-commit" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git commit -m <span class="s2">&quot;add some treatments for patients&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;add some treatments for patients&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -940,8 +946,8 @@ $ git status
 <blockquote>
 <div><p>We’ll create some fictitious data files for now.</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir data
-$ touch data/a.dat data/b.dat big-data.zip
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir data
+touch data/a.dat data/b.dat big-data.zip
 </pre></div>
 </div>
 <blockquote>
@@ -952,7 +958,7 @@ $ touch data/a.dat data/b.dat big-data.zip
 <blockquote>
 <div><p>At the root of the repository, create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file, and type in it the path and name of all files and directories you don’t want to tack.</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano .gitignore
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano .gitignore
 </pre></div>
 </div>
 <p>Type:</p>
@@ -972,7 +978,7 @@ data/
 </div>
 <div class="section" id="c-check-what-s-being-ignored">
 <h4><span class="section-number">1.2.7.2. </span>c. Check What’s Being Ignored<a class="headerlink" href="#c-check-what-s-being-ignored" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status --ignored
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git status --ignored
 </pre></div>
 </div>
 <blockquote>
@@ -990,9 +996,9 @@ data/
 <h3><span class="section-number">1.3.1. </span>7. EXPLORING THE HISTORY [16 min]<a class="headerlink" href="#exploring-the-history-16-min" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="a-checking-the-log">
 <h4><span class="section-number">1.3.1.1. </span>a. Checking the Log<a class="headerlink" href="#a-checking-the-log" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log
-$ git log --graph <span class="o">[</span>optional<span class="o">]</span>
-$ git log --oneline
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git log
+git log --graph <span class="o">[</span>optional<span class="o">]</span>
+git log --oneline
 </pre></div>
 </div>
 <blockquote>
@@ -1016,7 +1022,7 @@ $ git log --oneline
 </div>
 <div class="section" id="c-add-more-to-the-documentation-of-count-lines-py">
 <h4><span class="section-number">1.3.1.3. </span>c. Add more to the Documentation of <a class="reference external" href="http://count-lines.py">count-lines.py</a><a class="headerlink" href="#c-add-more-to-the-documentation-of-count-lines-py" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano count-lines.py
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: a string with the total number of lines</span>
@@ -1025,14 +1031,14 @@ $ git log --oneline
 </div>
 <div class="section" id="d-check-differences-compared-to-head">
 <h4><span class="section-number">1.3.1.4. </span>d. Check Differences Compared to HEAD<a class="headerlink" href="#d-check-differences-compared-to-head" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff HEAD count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git diff HEAD count-lines.py
 </pre></div>
 </div>
 <blockquote>
 <div><p>This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use <strong>HEAD</strong> to check the difference between the current state of <code class="docutils literal notranslate"><span class="pre">count-lines.py</span></code> (in the working directory) and previous commits.</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff HEAD~1 count-lines.py 
-$ git diff HEAD~3 count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git diff HEAD~1 count-lines.py 
+git diff HEAD~3 count-lines.py
 </pre></div>
 </div>
 <blockquote>
@@ -1046,11 +1052,11 @@ $ git diff HEAD~3 count-lines.py
 </div></blockquote>
 <p>Usage:</p>
 <p><strong>git diff</strong> <code class="docutils literal notranslate"><span class="pre">&lt;start-commit-SHA&gt;</span></code> <strong>HEAD</strong> <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --oneline <span class="c1"># [copy an ID to compare]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git log --oneline <span class="c1"># [copy an ID to compare]</span>
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff commit-id count-lines.py <span class="c1"># [use ID for first commit]</span>
-$ git diff commit-id HEAD count-lines.py <span class="c1"># [use ID for first commit]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git diff commit-id count-lines.py <span class="c1"># [use ID for first commit]</span>
+git diff commit-id HEAD count-lines.py <span class="c1"># [use ID for first commit]</span>
 </pre></div>
 </div>
 <blockquote>
@@ -1066,14 +1072,14 @@ $ git diff commit-id HEAD count-lines.py <span class="c1"># [use ID for first co
 <blockquote>
 <div><p>BEFORE THAT: if you haven’t add a descripton for <code class="docutils literal notranslate"><span class="pre">Output</span></code> to <a class="reference external" href="http://count-lines.py">count-lines.py</a>. Do that using <code class="docutils literal notranslate"><span class="pre">nano</span></code>, and commit the changes.</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> nano count-lines.py
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: a string with the total number of lines</span>
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add count-lines.py
-$ git commit -m <span class="s2">&quot;add description of output&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add count-lines.py
+git commit -m <span class="s2">&quot;add description of output&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="a-revert-to-older-versions-using-an-identifier">
@@ -1081,11 +1087,11 @@ $ git commit -m <span class="s2">&quot;add description of output&quot;</span>
 <blockquote>
 <div><p>One way to revert changes is using the commit ID. Restore latest version in the history tree using  the <code class="docutils literal notranslate"><span class="pre">checkout</span></code> command.</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --oneline <span class="c1"># [copy ID of &quot;description input&quot;]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git log --oneline <span class="c1"># [copy ID of &quot;description input&quot;]</span>
 </pre></div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout &lt;id--commit&gt; count-lines.py <span class="c1"># [will revert changes, use firts commit ID]</span>
-$ cat count-lines.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git checkout &lt;id--commit&gt; count-lines.py <span class="c1"># [will revert changes, use firts commit ID]</span>
+cat count-lines.py
 </pre></div>
 </div>
 </div>
@@ -1094,7 +1100,7 @@ $ cat count-lines.py
 <blockquote>
 <div><p><strong>Additional example, used only if on schedule. Ask particpants to do them by themselves.</strong></p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout f9d7e9c count-lines.py  
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git checkout f9d7e9c count-lines.py  
 </pre></div>
 </div>
 <blockquote>
@@ -1102,14 +1108,14 @@ $ cat count-lines.py
 </div></blockquote>
 <ul>
 <li><p>check out to HEAD</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout HEAD count-lines.py 
-$ cat count-lines.py <span class="o">[</span>notice the file is back to the newest committed version<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git checkout HEAD count-lines.py 
+cat count-lines.py <span class="o">[</span>notice the file is back to the newest committed version<span class="o">]</span>
 </pre></div>
 </div>
 </li>
 <li><p>Add and Commit the newest version</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add count-lines.py 
-$ git commit -m <span class="s2">&quot;update author&#39;s name&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add count-lines.py 
+git commit -m <span class="s2">&quot;update author&#39;s name&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -1135,14 +1141,14 @@ $ git commit -m <span class="s2">&quot;update author&#39;s name&quot;</span>
 <li><p><strong>Create new repository, use the modify-add-commit cycle, and recover older versions.</strong></p>
 <ol>
 <li><p>Create and initialize a repository called ‘my-repo’.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdr my-repo
-$ <span class="nb">cd</span> my-repo/
-$ git init
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdr my-repo
+<span class="nb">cd</span> my-repo/
+git init
 </pre></div>
 </div>
 </li>
 <li><p>Create a files <code class="docutils literal notranslate"><span class="pre">research.txt</span></code> with the sentence: <strong>Science is awesome</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano research.txt
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano research.txt
 </pre></div>
 </div>
 <p>Inside the file type the following and save changes:</p>
@@ -1151,13 +1157,13 @@ $ git init
 </div>
 </li>
 <li><p>Add and commit the changes. Remember to use a meaning message.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add research.txt
-$ git commit -m <span class="s2">&quot;add awesome science&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add research.txt
+git commit -m <span class="s2">&quot;add awesome science&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Change sentence in ‘research.txt’ to: <strong>Science is messy</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano research.txt
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano research.txt
 </pre></div>
 </div>
 <p>Change text to this and save changes:</p>
@@ -1166,25 +1172,25 @@ $ git commit -m <span class="s2">&quot;add awesome science&quot;</span>
 </div>
 </li>
 <li><p>Add and commit.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add research.txt
-$ git commit -m <span class="s2">&quot;change to messy science&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add research.txt
+git commit -m <span class="s2">&quot;change to messy science&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Revert changes to the very first version of ‘research.txt’, and commit.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --oneline <span class="c1"># find and copy ID of the firts commit</span>
-$ git checkout &lt;commit-ID&gt; research.txt <span class="c1"># revert changes </span>
-$ cat reseach.txt <span class="c1"># check version has been recovered</span>
-$ git commit -m <span class="s2">&quot;recover awesome science&quot;</span> <span class="c1"># commit recovered version</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git log --oneline <span class="c1"># find and copy ID of the firts commit</span>
+git checkout &lt;commit-ID&gt; research.txt <span class="c1"># revert changes </span>
+cat reseach.txt <span class="c1"># check version has been recovered</span>
+git commit -m <span class="s2">&quot;recover awesome science&quot;</span> <span class="c1"># commit recovered version</span>
 </pre></div>
 </div>
 </li>
 </ol>
 </li>
 <li><p><strong>Check your history log – you should have 3 commits</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log <span class="c1"># print full log</span>
-$ git log --graph <span class="c1"># print log as text-graph</span>
-$ git log --oneline <span class="c1"># print short version of log</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git log <span class="c1"># print full log</span>
+git log --graph <span class="c1"># print log as text-graph</span>
+git log --oneline <span class="c1"># print short version of log</span>
 </pre></div>
 </div>
 </li>
@@ -1212,24 +1218,24 @@ $ git log --oneline <span class="c1"># print short version of log</span>
 <ul>
 <li><p>Create a Key-pair inside the <code class="docutils literal notranslate"><span class="pre">.ssh</span></code>  in the Home directory</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># move to Home directory</span>
-$ <span class="nb">cd</span> ~
+<span class="nb">cd</span> ~
 <span class="c1"># create key</span>
-$ ssh-keygen -t ed25519 -C <span class="s2">&quot;your_email@example.com&quot;</span>
+ssh-keygen -t ed25519 -C <span class="s2">&quot;your_email@example.com&quot;</span>
 <span class="c1"># save to the default location and file name: ~/.ssh/id_ed25519</span>
 </pre></div>
 </div>
 </li>
 <li><p>Check the keys have been created</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls ~/.ssh/
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls ~/.ssh/
 </pre></div>
 </div>
 </li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">ssh-agent</span></code> and add private key to agent:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># start agent</span>
-$ <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&quot;</span>
 
 <span class="c1"># add private key</span>
-$ ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_ed25519
 </pre></div>
 </div>
 <blockquote>
@@ -1243,7 +1249,7 @@ Mac and Linux user don’t have to worry about this.</p>
 </div></blockquote>
 <ul>
 <li><p>Copy public key to GitHub:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ clip &lt; .ssh/id_ed25519.pub
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clip &lt; .ssh/id_ed25519.pub
 </pre></div>
 </div>
 </li>
@@ -1252,7 +1258,7 @@ Mac and Linux user don’t have to worry about this.</p>
 <p>Profile &gt; Settings &gt; SSH and GPG keys &gt; New SSH key &gt; Add SSH key</p>
 <ul>
 <li><p>Test SSH connection</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ssh -T git@github.com
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh -T git@github.com
 </pre></div>
 </div>
 </li>
@@ -1281,14 +1287,14 @@ Mac and Linux user don’t have to worry about this.</p>
 </div></blockquote>
 <ul>
 <li><p>Connect to remote</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote add origin git@github.com:&lt;user-name&gt;/&lt;repo-name&gt;.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git remote add origin git@github.com:&lt;user-name&gt;/&lt;repo-name&gt;.git
 </pre></div>
 </div>
 </li>
 <li><p>Check that remote was added</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote -v
-$ git branch -M main <span class="c1"># [will change the name of the main branch of the repo to make it more friendly]</span>
-$ git push -u origin main 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git remote -v
+git branch -M main <span class="c1"># [will change the name of the main branch of the repo to make it more friendly]</span>
+git push -u origin main 
 </pre></div>
 </div>
 </li>
@@ -1299,7 +1305,7 @@ $ git push -u origin main
 <ul>
 <li><p>Go back to your repo page and refresh the browser.</p></li>
 <li><p>To pull changes from the remote:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git pull origin main
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git pull origin main
 </pre></div>
 </div>
 </li>
@@ -1355,8 +1361,8 @@ $ git push -u origin main
 <blockquote>
 <div><p>Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -&gt; <code class="docutils literal notranslate"><span class="pre">https://github.com/manuGil/workshop-checkin.git</span></code></p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/Desktop
-$ git clone https://github.com/manuGil/workshop-check-in.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Desktop
+git clone https://github.com/manuGil/workshop-check-in.git
 </pre></div>
 </div>
 </div>
@@ -1365,8 +1371,8 @@ $ git clone https://github.com/manuGil/workshop-check-in.git
 <blockquote>
 <div><p>Make a copy of <code class="docutils literal notranslate"><span class="pre">check-in/template.md</span></code> in the same Directory; remane the file using a unique name (e.g. three first laters of your name and the last two digits of your phone number. Mind the file extension “.md”</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> workshop-check-in
-$ cp check-in/template.md check-in/&lt;my-nickname-file&gt;.md
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> workshop-check-in
+cp check-in/template.md check-in/&lt;my-nickname-file&gt;.md
 </pre></div>
 </div>
 </div>
@@ -1375,7 +1381,7 @@ $ cp check-in/template.md check-in/&lt;my-nickname-file&gt;.md
 <blockquote>
 <div><p>Edit <code class="docutils literal notranslate"><span class="pre">&lt;my-name-file&gt;.md</span></code> and change the content. You’ll see some hints</p>
 </div></blockquote>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano check-in/&lt;my-name-file&gt;.md
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano check-in/&lt;my-name-file&gt;.md
 </pre></div>
 </div>
 </div>
@@ -1389,10 +1395,10 @@ $ cp check-in/template.md check-in/&lt;my-nickname-file&gt;.md
 <li><p>“Upload the changes to GitHub with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">main</span></code>”</p></li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git pull origin main
-$ git add .
-$ git commit -m <span class="s2">&quot;check manuel in&quot;</span>
-$ git push origin main <span class="c1">#[This works only if participants are added to the repository as collaborators]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git pull origin main
+git add .
+git commit -m <span class="s2">&quot;check manuel in&quot;</span>
+git push origin main <span class="c1">#[This works only if participants are added to the repository as collaborators]</span>
 </pre></div>
 </div>
 <blockquote>
