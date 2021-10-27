@@ -1,6 +1,6 @@
 # LECTURE NOTES: Version Control with Git
 
-**Instructor:** *Manuel G. Garcia*
+**Instructor:** *Leila Inigo de la Cruz*
 
 **Last update:** *20-10-2021*
 
@@ -36,6 +36,8 @@ Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
 ### INTRODUCTION [10 min]
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
+
+> Presentation notes 
 
 ### 1.  SETTING UP GIT (Lecture begins) [6 min]
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 

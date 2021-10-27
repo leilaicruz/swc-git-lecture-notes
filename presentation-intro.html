@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to the SWC Git Lesson &#8212; Git lesson SWC</title>
+    <title>2. Welcome to the Git lesson from the Software Carpentry! &#8212; Git lesson SWC</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -87,7 +87,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. LECTURE NOTES: Version Control with Git" href="git-notes.html" />
+    <link rel="prev" title="1. LECTURE NOTES: Version Control with Git" href="git-notes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -118,8 +118,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Welcome to the SWC Git Lesson
   </a>
  </li>
@@ -129,14 +129,14 @@ commentsRunWhenDOMLoaded(addUtterances);
   Lecture notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="git-notes.html">
    1. LECTURE NOTES: Version Control with Git
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="presentation-intro.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    2. Welcome to the Git lesson from the Software Carpentry!
   </a>
  </li>
@@ -181,7 +181,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/presentation-intro.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -201,7 +201,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/leilaicruz/swc-git-lecture-notes/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/leilaicruz/swc-git-lecture-notes/issues/new?title=Issue%20on%20page%20%2Fpresentation-intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -222,6 +222,90 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2. Welcome to the Git lesson from the Software Carpentry!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-version-control">
+   3. Introduction to version control
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-do-we-need-version-control">
+   4.
+   <strong>
+    Why
+   </strong>
+   do we need version control?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#because-this">
+     4.1. Because this
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-lead-to-this">
+     4.2. can lead to this
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#version-management-best-practices">
+     4.3. Version management best practices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-version-control">
+   5.
+   <strong>
+    What
+   </strong>
+   is version control?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlling-the-versions">
+     5.1.
+     <em>
+      Controlling the versions
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#manual-versioning">
+       5.1.1. Manual versioning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-is-a-distributed-version-control-system-vcs-that-automates-everything">
+     5.2. Git is a
+     <em>
+      distributed
+     </em>
+     version control system (VCS) that automates everything
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-we-going-to-use">
+     5.3. What are we going to use?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -230,12 +314,84 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="section" id="welcome-to-the-swc-git-lesson">
-<h1>Welcome to the SWC Git Lesson<a class="headerlink" href="#welcome-to-the-swc-git-lesson" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-the-git-lesson-from-the-software-carpentry">
+<h1><span class="section-number">2. </span>Welcome to the Git lesson from the Software Carpentry!<a class="headerlink" href="#welcome-to-the-git-lesson-from-the-software-carpentry" title="Permalink to this headline">¶</a></h1>
+</div>
+<hr class="docutils" />
+<div class="section" id="introduction-to-version-control">
+<h1><span class="section-number">3. </span>Introduction to version control<a class="headerlink" href="#introduction-to-version-control" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Adapted from <a class="reference external" href="https://github.com/manuGil/lecture-notes">Manuel G. Garcia notes</a></p></li>
+<li><p><strong>Why</strong> do we need version control?</p></li>
+<li><p><strong>What</strong> is version control?</p></li>
+<li><p><strong>How</strong> to version control?</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+</div>
+<hr class="docutils" />
+<div class="section" id="why-do-we-need-version-control">
+<h1><span class="section-number">4. </span><strong>Why</strong> do we need version control?<a class="headerlink" href="#why-do-we-need-version-control" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="because-this">
+<h2><span class="section-number">4.1. </span>Because this<a class="headerlink" href="#because-this" title="Permalink to this headline">¶</a></h2>
+<p><img alt="height:15cm width:12cm" src="_images/phd_final_doc.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="can-lead-to-this">
+<h2><span class="section-number">4.2. </span>can lead to this<a class="headerlink" href="#can-lead-to-this" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/phd_story_told_infilenames.gif" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="version-management-best-practices">
+<h2><span class="section-number">4.3. </span>Version management best practices<a class="headerlink" href="#version-management-best-practices" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Possible to revert back to a working version if things broke.</p></li>
+<li><p>Benefit team collaboration.</p></li>
+<li><p>Improve efficiency.</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="what-is-version-control">
+<h1><span class="section-number">5. </span><strong>What</strong> is version control?<a class="headerlink" href="#what-is-version-control" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="controlling-the-versions">
+<h2><span class="section-number">5.1. </span><em>Controlling the versions</em><a class="headerlink" href="#controlling-the-versions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Keeping track of changes in a systematic way.</p>
+<ul>
+<li><p>having access to previous versions</p></li>
+<li><p>in code: to know precisely which lines where changed in the code</p></li>
+<li><p>being able to come back to any working version</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="manual-versioning">
+<h3><span class="section-number">5.1.1. </span>Manual versioning<a class="headerlink" href="#manual-versioning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add a changelog.txt to each folder of your project , stating all the changes you have done with a time stamp.</p></li>
+<li><p>This system can allow you to know what did you change in each file</p></li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul class="simple">
+<li><p>Each version of the file is a new file in your system, thereby consuming more space , a new version is generated.</p></li>
+<li><p>If you are working in collaboration with others, it is practically impossible to merge changes from many people.</p></li>
+<li><p>It requires a lot of discipline.</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="git-is-a-distributed-version-control-system-vcs-that-automates-everything">
+<h2><span class="section-number">5.2. </span>Git is a <em>distributed</em> version control system (VCS) that automates everything<a class="headerlink" href="#git-is-a-distributed-version-control-system-vcs-that-automates-everything" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/Git-Logo.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="what-are-we-going-to-use">
+<h2><span class="section-number">5.3. </span>What are we going to use?<a class="headerlink" href="#what-are-we-going-to-use" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Terminal (Linux, Mac), Git Bash (Windows)</p></li>
+<li><p>Browser</p></li>
+<li><p>Github account</p></li>
+</ul>
 </div>
 </div>
 
@@ -264,7 +420,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="git-notes.html" title="next page"><span class="section-number">1. </span>LECTURE NOTES: Version Control with Git</a>
+    <a class='left-prev' id="prev-link" href="git-notes.html" title="previous page"><span class="section-number">1. </span>LECTURE NOTES: Version Control with Git</a>
 
         </div>
         
