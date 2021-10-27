@@ -1,7 +1,8 @@
 format: jb-book
 root: intro
 parts:
-- caption: General docs
+- caption: Lecture notes 
   numbered: true
   chapters:
   - file: git-notes
+  - file: presentation-intro
