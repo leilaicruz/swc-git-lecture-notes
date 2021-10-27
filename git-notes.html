@@ -1,0 +1,1482 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. LECTURE NOTES: Version Control with Git &#8212; Git lesson SWC</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "leilaicruz/swc-git-lecture-notes");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to the SWC Git Lesson" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/phd_final_doc.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Git lesson SWC</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the SWC Git Lesson
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General docs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. LECTURE NOTES: Version Control with Git
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/git-notes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/leilaicruz/swc-git-lecture-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/leilaicruz/swc-git-lecture-notes/issues/new?title=Issue%20on%20page%20%2Fgit-notes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparation">
+   1.1. PREPARATION
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows-terminal-preview-keyboard-shortcuts">
+     1.1.1. Windows Terminal (Preview) [Keyboard shortcuts]
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1">
+   1.2. PART 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-10-min">
+     1.2.1. INTRODUCTION [10 min]
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-git-lecture-begins-6-min">
+     1.2.2. 1.  SETTING UP GIT (Lecture begins) [6 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-command-syntax">
+       1.2.2.1. Git Command Syntax
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-setting-up-a-username-and-email">
+       1.2.2.2. a. Setting up a Username and Email
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-configure-line-breaks">
+       1.2.2.3. b. Configure Line Breaks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-global-settings">
+       1.2.2.4. c. Check Global Settings
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-repository-4-min">
+     1.2.3. 2. CREATING A REPOSITORY [4 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-make-a-directory-on-the-desktop">
+       1.2.3.1. a. Make a Directory on the Desktop
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-initialize-the-repository">
+       1.2.3.2. b. Initialize the Repository
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-content-and-status">
+       1.2.3.3. c. Check Content and Status
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-tracking-changes-10-min">
+     1.2.4. 3. START TRACKING CHANGES [10 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-create-a-python-script-to-count-lines">
+       1.2.4.1. a. Create a Python Script to Count Lines
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-test-the-script">
+       1.2.4.2. b. Test the Script
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-git-status">
+       1.2.4.3. c. Check Git Status
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-start-tacking-a-file-using-git-add-commit">
+       1.2.4.4. d. Start Tacking a File Using git add-commit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-commit-changes">
+       1.2.4.5. e. Commit Changes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-other-changes-5-min">
+     1.2.5. 4. MAKING OTHER CHANGES [5 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-check-differences-review-changes">
+       1.2.5.1. b. Check Differences (review changes)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-add-and-commit">
+       1.2.5.2. c. Add and Commit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-diff-vs-diff-staged">
+       1.2.5.3. d. Diff vs Diff –staged
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-empty-directories-4-mins">
+     1.2.6. 5. GIT &amp; EMPTY DIRECTORIES [4 mins]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-create-a-directory-treatments">
+       1.2.6.1. a. Create a Directory ‘treatments’.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-create-files-on-the-directory-and-add-changes">
+       1.2.6.2. b. Create Files on the Directory and Add Changes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-stage-all-files-in-the-directory">
+       1.2.6.3. c. Stage All Files in the Directory
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-commit">
+       1.2.6.4. d. Commit
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ignoring-things-6-mins">
+     1.2.7. 6. IGNORING THINGS [6 mins]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-create-gitignore-file">
+       1.2.7.1. b. Create .gitignore File
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-what-s-being-ignored">
+       1.2.7.2. c. Check What’s Being Ignored
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2">
+   1.3. PART 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploring-the-history-16-min">
+     1.3.1. 7. EXPLORING THE HISTORY [16 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-checking-the-log">
+       1.3.1.1. a. Checking the Log
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-head">
+       1.3.1.2. b. HEAD
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-add-more-to-the-documentation-of-count-lines-py">
+       1.3.1.3. c. Add more to the Documentation of count-lines.py
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-check-differences-compared-to-head">
+       1.3.1.4. d. Check Differences Compared to HEAD
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-comparison-using-the-commit-ids">
+       1.3.1.5. e. Comparison Using the commit IDs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reverting-changes-9-min">
+     1.3.2. 7. REVERTING CHANGES [9 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-revert-to-older-versions-using-an-identifier">
+       1.3.2.1. a. Revert to Older Versions Using an Identifier.
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-restore-the-version-without-any-docstring-optional">
+       1.3.2.2. b. Restore the version without any Docstring [Optional]
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-create-repository-and-track-changes-15-mins">
+     1.3.3. EXERCISE: Create Repository and Track Changes [15 mins]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-explain-exercise-in-plenary">
+       1.3.3.1. a. Explain exercise in plenary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-helpers-and-partcipants-go-to-a-breakout-session">
+       1.3.3.2. b. Helpers and partcipants go to a Breakout session
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-answers">
+       1.3.3.3. c. Answers
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3">
+   1.4. PART 3
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remotes-in-github-20-min">
+     1.4.1. 8. REMOTES IN GITHUB [20 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conect-to-github-via-ssh-technical-break-30-min">
+       1.4.1.1. 0. Conect to GitHub via SSH [Technical Break, 30 min]
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-create-github-repo">
+       1.4.1.2. a. Create GitHub Repo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-add-remote-to-local-repo">
+       1.4.1.3. b. Add Remote to Local Repo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-check-the-content-repositoy-is-in-github">
+       1.4.1.4. c. Check the Content Repositoy is in GitHub
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-exploring-the-github-gui-optional">
+     1.4.2. d. Exploring the GitHub GUI (optional)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-4">
+   1.5. PART 4
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conflicts-demo-15-min">
+     1.5.1. 9. CONFLICTS (Demo) [15 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-create-conflict">
+       1.5.1.1. a. Create conflict
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-solve-conflict">
+       1.5.1.2. b. Solve conflict
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collaborating-15-min">
+     1.5.2. 10. COLLABORATING  [15 min]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-clone-workshop-check-in-repository">
+       1.5.2.1. a. Clone workshop-check-in Repository
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-create-a-check-in-file">
+       1.5.2.2. b. Create a Check-in file
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-edit-your-check-in-file">
+       1.5.2.3. c. Edit your Check-in file
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-pull-add-commit-and-push-to-the-remote">
+       1.5.2.4. d. Pull, Add, Commit, and Push to the remote
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-optional-demo-create-branches-and-pull-requests">
+       1.5.2.5. e. [Optional] Demo Create branches and Pull requests
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lesson-summary-2-min">
+     1.5.3. 11. LESSON SUMMARY [2 min]
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optinal-licencing-and-citation-5-min">
+     1.5.4. 12. [Optinal] Licencing and Citation [5 min]
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-a">
+     1.5.5. 13. Q&amp;A
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="lecture-notes-version-control-with-git">
+<h1><span class="section-number">1. </span>LECTURE NOTES: Version Control with Git<a class="headerlink" href="#lecture-notes-version-control-with-git" title="Permalink to this headline">¶</a></h1>
+<p><strong>Instructor:</strong> <em>Manuel G. Garcia</em></p>
+<p><strong>Last update:</strong> <em>20-10-2021</em></p>
+<p>These lecture notes for the beginner-level of one of the lessons of the <a class="reference external" href="https://swcarpentry.github.io/git-novice/">Software Carpentry</a>. These notes assume the use of <a class="reference external" href="https://gitforwindows.org/">Git terminal for Windows</a>.
+The context and flow of this lesson have been addapted to better fit the audience.</p>
+<div class="section" id="preparation">
+<h2><span class="section-number">1.1. </span>PREPARATION<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>To set up the command history on two terminals do the following:</p>
+<ol class="simple">
+<li><p>On main terminal:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">&quot;history -a; </span><span class="nv">$PROMPT_COMMAND</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>On second (history) terminal:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tail -f ~/.bash_history
+</pre></div>
+</div>
+<div class="section" id="windows-terminal-preview-keyboard-shortcuts">
+<h3><span class="section-number">1.1.1. </span>Windows Terminal (Preview) [Keyboard shortcuts]<a class="headerlink" href="#windows-terminal-preview-keyboard-shortcuts" title="Permalink to this headline">¶</a></h3>
+<p>Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action</p></th>
+<th class="head"><p>Shortcut</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Split pane horizontally</p></td>
+<td><p>Alt + Shift + <code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Split pane vertically</p></td>
+<td><p>Alt + Shift + <code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Close a pane</p></td>
+<td><p>Ctrl+Shift + <code class="docutils literal notranslate"><span class="pre">w</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Move pane focus</p></td>
+<td><p>Alt + <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">keys</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Resize the focused pane</p></td>
+<td><p>Alt+Shift + <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">keys</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="part-1">
+<h2><span class="section-number">1.2. </span>PART 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction-10-min">
+<h3><span class="section-number">1.2.1. </span>INTRODUCTION [10 min]<a class="headerlink" href="#introduction-10-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Version control systems start with a base version of a document and then record changes you make each step of the way.</p>
+</div></blockquote>
+</div>
+<div class="section" id="setting-up-git-lecture-begins-6-min">
+<h3><span class="section-number">1.2.2. </span>1.  SETTING UP GIT (Lecture begins) [6 min]<a class="headerlink" href="#setting-up-git-lecture-begins-6-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Sometimes, the shortcut on the Windows menu for Git Bash won’t work. In such a case: go to the installation folder (usually <code class="docutils literal notranslate"><span class="pre">C:/Git</span></code>) and double-click on <code class="docutils literal notranslate"><span class="pre">git-bash.exe</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Key points:</strong>
+Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> with the <code class="docutils literal notranslate"><span class="pre">--global</span></code> option to configure a user name, email address, etc.</p>
+</div></blockquote>
+<div class="section" id="git-command-syntax">
+<h4><span class="section-number">1.2.2.1. </span>Git Command Syntax<a class="headerlink" href="#git-command-syntax" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">&lt;command&gt;</span> <span class="pre">[options]</span></code></p>
+<blockquote>
+<div><p>Explian syntax using “how to get help” as example.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>How to Get Help with the Commands</p>
+<ul>
+<li><p>show help for all commands: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">--help</span></code></p></li>
+<li><p>show help for specific command: e.g., <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span> <span class="pre">-h</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="a-setting-up-a-username-and-email">
+<h4><span class="section-number">1.2.2.2. </span>a. Setting up a Username and Email<a class="headerlink" href="#a-setting-up-a-username-and-email" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;github-username&quot;</span>
+$ git config --global user.email <span class="s2">&quot;github-email@mail.com&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="b-configure-line-breaks">
+<h4><span class="section-number">1.2.2.3. </span>b. Configure Line Breaks<a class="headerlink" href="#b-configure-line-breaks" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Use Notepad++ to demo the line breaks</p>
+</div></blockquote>
+<ul>
+<li><p>For Windows</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global core.autocrlf <span class="nb">true</span>
+</pre></div>
+</div>
+</li>
+<li><p>For MacOS and Linux</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global core.autocrlf input
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="c-check-global-settings">
+<h4><span class="section-number">1.2.2.4. </span>c. Check Global Settings<a class="headerlink" href="#c-check-global-settings" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global --list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-repository-4-min">
+<h3><span class="section-number">1.2.3. </span>2. CREATING A REPOSITORY [4 min]<a class="headerlink" href="#creating-a-repository-4-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>Key Points:</strong>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> initialises a repository.
+Git stores all of its repository data in a hidden <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Use case:</strong>
+Two researchers/programmers are developing code to analyse the inflammation data used in the Python session.</p>
+</div></blockquote>
+<div class="section" id="a-make-a-directory-on-the-desktop">
+<h4><span class="section-number">1.2.3.1. </span>a. Make a Directory on the Desktop<a class="headerlink" href="#a-make-a-directory-on-the-desktop" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/Desktop/patients
+</pre></div>
+</div>
+</div>
+<div class="section" id="b-initialize-the-repository">
+<h4><span class="section-number">1.2.3.2. </span>b. Initialize the Repository<a class="headerlink" href="#b-initialize-the-repository" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ./patients/
+$  git init
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-check-content-and-status">
+<h4><span class="section-number">1.2.3.3. </span>c. Check Content and Status<a class="headerlink" href="#c-check-content-and-status" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -a
+$ git status
+</pre></div>
+</div>
+<blockquote>
+<div><p>Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="start-tracking-changes-10-min">
+<h3><span class="section-number">1.2.4. </span>3. START TRACKING CHANGES [10 min]<a class="headerlink" href="#start-tracking-changes-10-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>Key Points:</strong> How git track changes and the modify-add-commit cycle.</p>
+</div></blockquote>
+<div class="section" id="a-create-a-python-script-to-count-lines">
+<h4><span class="section-number">1.2.4.1. </span>a. Create a Python Script to Count Lines<a class="headerlink" href="#a-create-a-python-script-to-count-lines" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>The script will count lines from the standard input. For this Python must be accessible from the terminal.</p>
+</div></blockquote>
+<ul>
+<li><p>Create and modify file</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano count-lines.py
+</pre></div>
+</div>
+</li>
+<li><p>Type code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;lines in standard input&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Check that the file is in the repository</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="b-test-the-script">
+<h4><span class="section-number">1.2.4.2. </span>b. Test the Script<a class="headerlink" href="#b-test-the-script" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># check Python is accessible from Git bash</span>
+    $ python --version
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;this is a line&quot;</span> <span class="p">|</span> python count-lines.py 
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> -e <span class="s2">&quot;this is a line, \n thi is another line&quot;</span> <span class="p">|</span> python count-lines.py 
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-check-git-status">
+<h4><span class="section-number">1.2.4.3. </span>c. Check Git Status<a class="headerlink" href="#c-check-git-status" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-start-tacking-a-file-using-git-add-commit">
+<h4><span class="section-number">1.2.4.4. </span>d. Start Tacking a File Using git add-commit<a class="headerlink" href="#d-start-tacking-a-file-using-git-add-commit" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add count-lines.py
+</pre></div>
+</div>
+<blockquote>
+<div><p>Ignore the warning about replacing LF with CRLF. |
+<strong>Warning: LF will be replaced by CRLF in <a class="reference external" href="http://count-lines.py">count-lines.py</a>.
+The file will have its original line endings in your working directory |</strong></p>
+</div></blockquote>
+</div>
+<div class="section" id="e-commit-changes">
+<h4><span class="section-number">1.2.4.5. </span>e. Commit Changes<a class="headerlink" href="#e-commit-changes" title="Permalink to this headline">¶</a></h4>
+<p>Creates a snapshot of the changes in the repository’s history three.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;create  script count-lines.py&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code> or <code class="docutils literal notranslate"><span class="pre">--all</span></code> “stage all changes and write them to history”</p>
+</div></blockquote>
+<blockquote>
+<div><p>A good commit message is short (&lt; 50 characters), and completes the sentence: ‘This will..’ <strong>message</strong> [use slide]</p>
+</div></blockquote>
+<blockquote>
+<div><p>Explanation of <strong>staging</strong>. The working directory, the staging area, and the git history. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> is used to define which files we want to commit. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> specifies what changes to stage; <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> takes a snapshot of the changes and writes them to the repository’s history. [Use illustration]</p>
+</div></blockquote>
+<blockquote>
+<div><p>Explanation of <strong>modify-add-commit</strong> cycle. [Use illustration]</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Questions?</strong></p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="making-other-changes-5-min">
+<h3><span class="section-number">1.2.5. </span>4. MAKING OTHER CHANGES [5 min]<a class="headerlink" href="#making-other-changes-5-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>We know that a good coding practice is using comments to describe our code. Let’s add some helpful comments to our script, e.g., author, python version and a short description of what the script does.</p>
+</div></blockquote>
+<ul>
+<li><p>Add the following to the top of the script</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; This module counts the number of lines in standard input</span>
+<span class="sd">Input: a string from the system&#39;s standard input </span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>check status</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+<blockquote>
+<div><p>Explanation: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desiable because is up to the user to decide when and what to commit to the repository’s history.</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="b-check-differences-review-changes">
+<h4><span class="section-number">1.2.5.1. </span>b. Check Differences (review changes)<a class="headerlink" href="#b-check-differences-review-changes" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff 
+</pre></div>
+</div>
+<blockquote>
+<div><p>Shows the difference between the current state and the most recently saved version (last commit)</p>
+</div></blockquote>
+</div>
+<div class="section" id="c-add-and-commit">
+<h4><span class="section-number">1.2.5.2. </span>c. Add and Commit<a class="headerlink" href="#c-add-and-commit" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add count-lines.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-diff-vs-diff-staged">
+<h4><span class="section-number">1.2.5.3. </span>d. Diff vs Diff –staged<a class="headerlink" href="#d-diff-vs-diff-staged" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff <span class="o">[</span><span class="k">do</span> not show the difference with staged change<span class="o">]</span>
+$ git diff --staged <span class="o">[</span>shows the difference with staged change<span class="o">]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>: shows the difference between no-staged changes and the previous commit. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">--staged</span></code>: shows the difference between staged-changes and the previous commit.</p>
+</div></blockquote>
+<p>Finally, commit the changes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;add description of expected input&quot;</span>.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="git-empty-directories-4-mins">
+<h3><span class="section-number">1.2.6. </span>5. GIT &amp; EMPTY DIRECTORIES [4 mins]<a class="headerlink" href="#git-empty-directories-4-mins" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-create-a-directory-treatments">
+<h4><span class="section-number">1.2.6.1. </span>a. Create a Directory ‘treatments’.<a class="headerlink" href="#a-create-a-directory-treatments" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Ask students to create a new directory, try to stage it, and check the status.</p>
+</div></blockquote>
+<p><strong>Solutions:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir treatments
+</pre></div>
+</div>
+<ul>
+<li><p>check the status and add the directory. No changes are added</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status
+$ git add treatments
+$ git status
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>Explanation: git doesn’t track empty directories. Git tracks the content of a file and its name (including its path).</p>
+</div></blockquote>
+</div>
+<div class="section" id="b-create-files-on-the-directory-and-add-changes">
+<h4><span class="section-number">1.2.6.2. </span>b. Create Files on the Directory and Add Changes<a class="headerlink" href="#b-create-files-on-the-directory-and-add-changes" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ touch treatments/aspirin.txt treatments/advil.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-stage-all-files-in-the-directory">
+<h4><span class="section-number">1.2.6.3. </span>c. Stage All Files in the Directory<a class="headerlink" href="#c-stage-all-files-in-the-directory" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add treatments/
+$ git status
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-commit">
+<h4><span class="section-number">1.2.6.4. </span>d. Commit<a class="headerlink" href="#d-commit" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git commit -m <span class="s2">&quot;add some treatments for patients&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ignoring-things-6-mins">
+<h3><span class="section-number">1.2.7. </span>6. IGNORING THINGS [6 mins]<a class="headerlink" href="#ignoring-things-6-mins" title="Permalink to this headline">¶</a></h3>
+<p>Say you have files you don’t want to tack with git.</p>
+<blockquote>
+<div><p>We’ll create some fictitious data files for now.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir data
+$ touch data/a.dat data/b.dat big-data.zip
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Important:</strong> git is not good for tracking large dataset, especially binary files. This is because binary files will be fully copied to the repository history when committed, and changes to tracked binary files will cause Git to save a copy file of the file for every commit. Therefore, increasing the size of the repository rapidly.</p>
+</div></blockquote>
+<div class="section" id="b-create-gitignore-file">
+<h4><span class="section-number">1.2.7.1. </span>b. Create .gitignore File<a class="headerlink" href="#b-create-gitignore-file" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>At the root of the repository, create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file, and type in it the path and name of all files and directories you don’t want to tack.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano .gitignore
+</pre></div>
+</div>
+<p>Type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>big-data.zip
+data/
+</pre></div>
+</div>
+<p>A good practice is to use comments to explain why files and directories are ignored. For example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># data files:</span>
+big-data.zip
+data/
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add and commit .gitignore*</p></li>
+</ul>
+</div>
+<div class="section" id="c-check-what-s-being-ignored">
+<h4><span class="section-number">1.2.7.2. </span>c. Check What’s Being Ignored<a class="headerlink" href="#c-check-what-s-being-ignored" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git status --ignored
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Questions?</strong></p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>FIRST BREAK</strong></p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="part-2">
+<h2><span class="section-number">1.3. </span>PART 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exploring-the-history-16-min">
+<h3><span class="section-number">1.3.1. </span>7. EXPLORING THE HISTORY [16 min]<a class="headerlink" href="#exploring-the-history-16-min" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-checking-the-log">
+<h4><span class="section-number">1.3.1.1. </span>a. Checking the Log<a class="headerlink" href="#a-checking-the-log" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log
+$ git log --graph <span class="o">[</span>optional<span class="o">]</span>
+$ git log --oneline
+</pre></div>
+</div>
+<blockquote>
+<div><p>Explanation of output: unique ID and list of commit messages.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Explanation content of Directory and where changes are stored.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Paging the log. <strong>Q</strong>= quit, <strong>spacebar</strong>= next page, <strong>/</strong>=search word, <strong>N</strong>=navigate thru matches. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">-N</span></code> <em>N</em>=number of commits (latest to first). <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code>, limit output to one line. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--graph</span></code> print a text graph of the history tree.</p>
+</div></blockquote>
+</div>
+<div class="section" id="b-head">
+<h4><span class="section-number">1.3.1.2. </span>b. HEAD<a class="headerlink" href="#b-head" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>In the following parts (b-e) is more important to <strong>put attention</strong> than to follow along. Put attention, follow along only if you won’t lose focus.</p>
+</div></blockquote>
+<blockquote>
+<div><p>The <strong>HEAD</strong> is a <strong>pointer</strong> that refers to the <em>current active branch</em> in the git, which can be that last commit we made or the last commit that was checkout into the working directory. We haven’t created more branches and the current history tree only contains one single branch, called by default <strong>master</strong> or <strong>main</strong>. In our case HEAD points to the most recent commit in the <em>master/main</em> branch. We can refer to the most recent commit using HEAD as an identifier.</p>
+</div></blockquote>
+</div>
+<div class="section" id="c-add-more-to-the-documentation-of-count-lines-py">
+<h4><span class="section-number">1.3.1.3. </span>c. Add more to the Documentation of <a class="reference external" href="http://count-lines.py">count-lines.py</a><a class="headerlink" href="#c-add-more-to-the-documentation-of-count-lines-py" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano count-lines.py
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: a string with the total number of lines</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-check-differences-compared-to-head">
+<h4><span class="section-number">1.3.1.4. </span>d. Check Differences Compared to HEAD<a class="headerlink" href="#d-check-differences-compared-to-head" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff HEAD count-lines.py
+</pre></div>
+</div>
+<blockquote>
+<div><p>This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use <strong>HEAD</strong> to check the difference between the current state of <code class="docutils literal notranslate"><span class="pre">count-lines.py</span></code> (in the working directory) and previous commits.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff HEAD~1 count-lines.py 
+$ git diff HEAD~3 count-lines.py
+</pre></div>
+</div>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">HEAD~1</span></code> compares with the last commit. <code class="docutils literal notranslate"><span class="pre">HEAD~3</span></code> compares to 3 commits ago.</p>
+</div></blockquote>
+</div>
+<div class="section" id="e-comparison-using-the-commit-ids">
+<h4><span class="section-number">1.3.1.5. </span>e. Comparison Using the commit IDs<a class="headerlink" href="#e-comparison-using-the-commit-ids" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>“You will have to reference the Hash explicitly if you want to see the <code class="docutils literal notranslate"><span class="pre">diff</span></code> of a file that was not changed between the last commit and the one before it (HEAD~1).”</p>
+</div></blockquote>
+<p>Usage:</p>
+<p><strong>git diff</strong> <code class="docutils literal notranslate"><span class="pre">&lt;start-commit-SHA&gt;</span></code> <strong>HEAD</strong> <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --oneline <span class="c1"># [copy an ID to compare]</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git diff commit-id count-lines.py <span class="c1"># [use ID for first commit]</span>
+$ git diff commit-id HEAD count-lines.py <span class="c1"># [use ID for first commit]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Wrap up this section by showing an illustration of the git history tree</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="reverting-changes-9-min">
+<h3><span class="section-number">1.3.2. </span>7. REVERTING CHANGES [9 min]<a class="headerlink" href="#reverting-changes-9-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p><strong>Follow along</strong></p>
+</div></blockquote>
+<blockquote>
+<div><p>BEFORE THAT: if you haven’t add a descripton for <code class="docutils literal notranslate"><span class="pre">Output</span></code> to <a class="reference external" href="http://count-lines.py">count-lines.py</a>. Do that using <code class="docutils literal notranslate"><span class="pre">nano</span></code>, and commit the changes.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano count-lines.py
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: a string with the total number of lines</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add count-lines.py
+$ git commit -m <span class="s2">&quot;add description of output&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="a-revert-to-older-versions-using-an-identifier">
+<h4><span class="section-number">1.3.2.1. </span>a. Revert to Older Versions Using an Identifier.<a class="headerlink" href="#a-revert-to-older-versions-using-an-identifier" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>One way to revert changes is using the commit ID. Restore latest version in the history tree using  the <code class="docutils literal notranslate"><span class="pre">checkout</span></code> command.</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --oneline <span class="c1"># [copy ID of &quot;description input&quot;]</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout &lt;id--commit&gt; count-lines.py <span class="c1"># [will revert changes, use firts commit ID]</span>
+$ cat count-lines.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="b-restore-the-version-without-any-docstring-optional">
+<h4><span class="section-number">1.3.2.2. </span>b. Restore the version without any Docstring [Optional]<a class="headerlink" href="#b-restore-the-version-without-any-docstring-optional" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><strong>Additional example, used only if on schedule. Ask particpants to do them by themselves.</strong></p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout f9d7e9c count-lines.py  
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Changes go to the staging area; they are not committed.</strong> However, we always can go back to any version we have committed. To go back to the newest version, check out to HEAD.</p>
+</div></blockquote>
+<ul>
+<li><p>check out to HEAD</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout HEAD count-lines.py 
+$ cat count-lines.py <span class="o">[</span>notice the file is back to the newest committed version<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add and Commit the newest version</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add count-lines.py 
+$ git commit -m <span class="s2">&quot;update author&#39;s name&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-create-repository-and-track-changes-15-mins">
+<h3><span class="section-number">1.3.3. </span>EXERCISE: Create Repository and Track Changes [15 mins]<a class="headerlink" href="#exercise-create-repository-and-track-changes-15-mins" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-explain-exercise-in-plenary">
+<h4><span class="section-number">1.3.3.1. </span>a. Explain exercise in plenary<a class="headerlink" href="#a-explain-exercise-in-plenary" title="Permalink to this headline">¶</a></h4>
+<p><strong>Exercise description (slides):</strong> <a class="reference external" href="https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing">https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing</a></p>
+</div>
+<div class="section" id="b-helpers-and-partcipants-go-to-a-breakout-session">
+<h4><span class="section-number">1.3.3.2. </span>b. Helpers and partcipants go to a Breakout session<a class="headerlink" href="#b-helpers-and-partcipants-go-to-a-breakout-session" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Suggestion: Share your screeen, and ask participats to try things first by themselves, then show them how to do it. Give them about 1 minute per activity <code class="docutils literal notranslate"><span class="pre">[1-6]</span></code> and then show them the answers one at the time.</p>
+</div></blockquote>
+</div>
+<div class="section" id="c-answers">
+<h4><span class="section-number">1.3.3.3. </span>c. Answers<a class="headerlink" href="#c-answers" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p><strong>Create new repository, use the modify-add-commit cycle, and recover older versions.</strong></p>
+<ol>
+<li><p>Create and initialize a repository called ‘my-repo’.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdr my-repo
+$ <span class="nb">cd</span> my-repo/
+$ git init
+</pre></div>
+</div>
+</li>
+<li><p>Create a files <code class="docutils literal notranslate"><span class="pre">research.txt</span></code> with the sentence: <strong>Science is awesome</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano research.txt
+</pre></div>
+</div>
+<p>Inside the file type the following and save changes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Science is awesome
+</pre></div>
+</div>
+</li>
+<li><p>Add and commit the changes. Remember to use a meaning message.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add research.txt
+$ git commit -m <span class="s2">&quot;add awesome science&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Change sentence in ‘research.txt’ to: <strong>Science is messy</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano research.txt
+</pre></div>
+</div>
+<p>Change text to this and save changes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Science is messy
+</pre></div>
+</div>
+</li>
+<li><p>Add and commit.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add research.txt
+$ git commit -m <span class="s2">&quot;change to messy science&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Revert changes to the very first version of ‘research.txt’, and commit.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log --oneline <span class="c1"># find and copy ID of the firts commit</span>
+$ git checkout &lt;commit-ID&gt; research.txt <span class="c1"># revert changes </span>
+$ cat reseach.txt <span class="c1"># check version has been recovered</span>
+$ git commit -m <span class="s2">&quot;recover awesome science&quot;</span> <span class="c1"># commit recovered version</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p><strong>Check your history log – you should have 3 commits</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git log <span class="c1"># print full log</span>
+$ git log --graph <span class="c1"># print log as text-graph</span>
+$ git log --oneline <span class="c1"># print short version of log</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="part-3">
+<h2><span class="section-number">1.4. </span>PART 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="remotes-in-github-20-min">
+<h3><span class="section-number">1.4.1. </span>8. REMOTES IN GITHUB [20 min]<a class="headerlink" href="#remotes-in-github-20-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Explain what GitHub is <strong>[slides, 2 min]</strong></p>
+</div></blockquote>
+<div class="section" id="conect-to-github-via-ssh-technical-break-30-min">
+<h4><span class="section-number">1.4.1.1. </span>0. Conect to GitHub via SSH [Technical Break, 30 min]<a class="headerlink" href="#conect-to-github-via-ssh-technical-break-30-min" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Recently, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. <strong>Use illustrations</strong> to explain what a SSH connection entitles.</p>
+</div></blockquote>
+<p>To connect via SSH do the following:</p>
+<ul>
+<li><p>Create a Key-pair inside the <code class="docutils literal notranslate"><span class="pre">.ssh</span></code>  in the Home directory</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># move to Home directory</span>
+$ <span class="nb">cd</span> ~
+<span class="c1"># create key</span>
+$ ssh-keygen -t ed25519 -C <span class="s2">&quot;your_email@example.com&quot;</span>
+<span class="c1"># save to the default location and file name: ~/.ssh/id_ed25519</span>
+</pre></div>
+</div>
+</li>
+<li><p>Check the keys have been created</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls ~/.ssh/
+</pre></div>
+</div>
+</li>
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">ssh-agent</span></code> and add private key to agent:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># start agent</span>
+$ <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># add private key</span>
+$ ssh-add ~/.ssh/id_ed25519
+</pre></div>
+</div>
+<blockquote>
+<div><p>Instruct SSH to use key files in different locations: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-i</span> <span class="pre">&lt;path/private/keyfile&gt;</span></code></p>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><p>Info on how to (start the ssh-agent automatically)[<a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows</a>]
+Mac and Linux user don’t have to worry about this.</p>
+</div></blockquote>
+<ul>
+<li><p>Copy public key to GitHub:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ clip &lt; .ssh/id_ed25519.pub
+</pre></div>
+</div>
+</li>
+<li><p>Go to GitHub, explain the basics of the interface and add the SSH key.</p></li>
+</ul>
+<p>Profile &gt; Settings &gt; SSH and GPG keys &gt; New SSH key &gt; Add SSH key</p>
+<ul>
+<li><p>Test SSH connection</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ssh -T git@github.com
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>More information on working with (SSH keys and GitHub.)[<a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">https://docs.github.com/en/authentication/connecting-to-github-with-ssh</a>]</p>
+</div></blockquote>
+<blockquote>
+<div><p>Check the info on (Troubleshooting SSH[<a class="reference external" href="https://docs.github.com/en/authentication/troubleshooting-ssh">https://docs.github.com/en/authentication/troubleshooting-ssh</a>]) for GitHub.</p>
+</div></blockquote>
+</div>
+<div class="section" id="a-create-github-repo">
+<h4><span class="section-number">1.4.1.2. </span>a. Create GitHub Repo<a class="headerlink" href="#a-create-github-repo" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Go to Github and create an empty and public repository called <code class="docutils literal notranslate"><span class="pre">patients-analysis</span></code>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Repo description: <em>analysis of treatments for inflammation</em></p></li>
+</ul>
+</div>
+<div class="section" id="b-add-remote-to-local-repo">
+<h4><span class="section-number">1.4.1.3. </span>b. Add Remote to Local Repo<a class="headerlink" href="#b-add-remote-to-local-repo" title="Permalink to this headline">¶</a></h4>
+<p>Move back to the repo directory: `~/Desktop/</p>
+<blockquote>
+<div><p>In your local repository (on the terminal), add the remote repository and push the content.</p>
+</div></blockquote>
+<ul>
+<li><p>Connect to remote</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote add origin git@github.com:&lt;user-name&gt;/&lt;repo-name&gt;.git
+</pre></div>
+</div>
+</li>
+<li><p>Check that remote was added</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+$ git branch -M main <span class="c1"># [will change the name of the main branch of the repo to make it more friendly]</span>
+$ git push -u origin main 
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="c-check-the-content-repositoy-is-in-github">
+<h4><span class="section-number">1.4.1.4. </span>c. Check the Content Repositoy is in GitHub<a class="headerlink" href="#c-check-the-content-repositoy-is-in-github" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Go back to your repo page and refresh the browser.</p></li>
+<li><p>To pull changes from the remote:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git pull origin main
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>Questions?</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="d-exploring-the-github-gui-optional">
+<h3><span class="section-number">1.4.2. </span>d. Exploring the GitHub GUI (optional)<a class="headerlink" href="#d-exploring-the-github-gui-optional" title="Permalink to this headline">¶</a></h3>
+<hr class="docutils" />
+<p><strong>SECOND BREAK</strong></p>
+<blockquote>
+<div><p>Invite several participants as collaborators to the repository <code class="docutils literal notranslate"><span class="pre">workshop-check-in</span></code></p>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="part-4">
+<h2><span class="section-number">1.5. </span>PART 4<a class="headerlink" href="#part-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="conflicts-demo-15-min">
+<h3><span class="section-number">1.5.1. </span>9. CONFLICTS (Demo) [15 min]<a class="headerlink" href="#conflicts-demo-15-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Explanation of when a conflict can happen: “A conflict arises when two collaborators make changes to the same line in a file, or when a file has been deleted by one collaborator, but edited by  another.”</p>
+</div></blockquote>
+<blockquote>
+<div><p>Demo using the <code class="docutils literal notranslate"><span class="pre">count-lines.py</span></code>. A helper and the Instructor will create a conflict and present a solution.</p>
+</div></blockquote>
+<div class="section" id="a-create-conflict">
+<h4><span class="section-number">1.5.1.1. </span>a. Create conflict<a class="headerlink" href="#a-create-conflict" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>[Instructor]: explains how to add collaborators to a repository in GitHub. He adds helper as collaborator.</p></li>
+<li><p>[Helper]: pulls instructor’s repo; edits <code class="docutils literal notranslate"><span class="pre">count-lines.py</span></code> and modifies the print line as follows: <code class="docutils literal notranslate"><span class="pre">print(count,</span> <span class="pre">'total</span> <span class="pre">lines</span> <span class="pre">in</span> <span class="pre">standard</span> <span class="pre">input)</span></code>.</p></li>
+<li><p>[Helper]: Adds, commits and pushes changes to remote.</p></li>
+<li><p>[Instructor]: edits local <code class="docutils literal notranslate"><span class="pre">count-lines.py</span></code>; modifies the print line as follows: <code class="docutils literal notranslate"><span class="pre">print('We</span> <span class="pre">found',</span> <span class="pre">count,</span> <span class="pre">'lines</span> <span class="pre">in</span> <span class="pre">standard</span> <span class="pre">input)</span></code> Add, commit and try to <strong>pull</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="b-solve-conflict">
+<h4><span class="section-number">1.5.1.2. </span>b. Solve conflict<a class="headerlink" href="#b-solve-conflict" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>[Instructor]: explains why the conflict occurred and how to solve it by  editing <code class="docutils literal notranslate"><span class="pre">count-lines.py</span></code> and deciding what changes to keep. Then: add, commit,and  <strong>push</strong>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="collaborating-15-min">
+<h3><span class="section-number">1.5.2. </span>10. COLLABORATING  [15 min]<a class="headerlink" href="#collaborating-15-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Explain the concept of social coding. [1.5 min]</p>
+</div></blockquote>
+<div class="section" id="a-clone-workshop-check-in-repository">
+<h4><span class="section-number">1.5.2.1. </span>a. Clone workshop-check-in Repository<a class="headerlink" href="#a-clone-workshop-check-in-repository" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -&gt; <code class="docutils literal notranslate"><span class="pre">https://github.com/manuGil/workshop-checkin.git</span></code></p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/Desktop
+$ git clone https://github.com/manuGil/workshop-check-in.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="b-create-a-check-in-file">
+<h4><span class="section-number">1.5.2.2. </span>b. Create a Check-in file<a class="headerlink" href="#b-create-a-check-in-file" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Make a copy of <code class="docutils literal notranslate"><span class="pre">check-in/template.md</span></code> in the same Directory; remane the file using a unique name (e.g. three first laters of your name and the last two digits of your phone number. Mind the file extension “.md”</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> workshop-check-in
+$ cp check-in/template.md check-in/&lt;my-nickname-file&gt;.md
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-edit-your-check-in-file">
+<h4><span class="section-number">1.5.2.3. </span>c. Edit your Check-in file<a class="headerlink" href="#c-edit-your-check-in-file" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Edit <code class="docutils literal notranslate"><span class="pre">&lt;my-name-file&gt;.md</span></code> and change the content. You’ll see some hints</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ nano check-in/&lt;my-name-file&gt;.md
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-pull-add-commit-and-push-to-the-remote">
+<h4><span class="section-number">1.5.2.4. </span>d. Pull, Add, Commit, and Push to the remote<a class="headerlink" href="#d-pull-add-commit-and-push-to-the-remote" title="Permalink to this headline">¶</a></h4>
+<p>A basic collaborative workflow using git is:</p>
+<ul class="simple">
+<li><p>“Update the local repo with git <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">main</span></code>,”</p></li>
+<li><p>“Make changes and stage them with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>,”</p></li>
+<li><p>“Commit changes with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span></code>, and”</p></li>
+<li><p>“Upload the changes to GitHub with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">main</span></code>”</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git pull origin main
+$ git add .
+$ git commit -m <span class="s2">&quot;check manuel in&quot;</span>
+$ git push origin main <span class="c1">#[This works only if participants are added to the repository as collaborators]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Ask a participant to push their changes to remote, and show the changes int the GitHuh GUI.</p>
+</div></blockquote>
+</div>
+<div class="section" id="e-optional-demo-create-branches-and-pull-requests">
+<h4><span class="section-number">1.5.2.5. </span>e. [Optional] Demo Create branches and Pull requests<a class="headerlink" href="#e-optional-demo-create-branches-and-pull-requests" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git branch manuelg
+git checkout manuelg
+</pre></div>
+</div>
+<blockquote>
+<div><p>Demo pull request on GitHub</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="lesson-summary-2-min">
+<h3><span class="section-number">1.5.3. </span>11. LESSON SUMMARY [2 min]<a class="headerlink" href="#lesson-summary-2-min" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Repository initialization <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></p></li>
+<li><p>Git records changes via commits to the history three</p></li>
+<li><p>Remember the <strong>modify-add-commit</strong> cycle</p></li>
+<li><p>Don’t include large datasets in your repositories. Set a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file</p></li>
+<li><p>Remotes store copies of the git repositories (e.g., GitHub, GitLab)</p></li>
+<li><p>Collaborative workflow using branches: <strong>pull, add, commit, push, pull request</strong></p></li>
+<li><p>Be aware of <em>conflicts</em></p></li>
+</ul>
+</div>
+<div class="section" id="optinal-licencing-and-citation-5-min">
+<h3><span class="section-number">1.5.4. </span>12. [Optinal] Licencing and Citation [5 min]<a class="headerlink" href="#optinal-licencing-and-citation-5-min" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Explaing the importance of licencing and citation for Open Science. Share template for compliance with TU Deflt software policy: <a class="reference external" href="https://github.com/manuGil/fair-code">https://github.com/manuGil/fair-code</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="q-a">
+<h3><span class="section-number">1.5.5. </span>13. Q&amp;A<a class="headerlink" href="#q-a" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Participants ask questions.</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to the SWC Git Lesson</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Leila Iñigo de la Cruz<br/>
+        
+            &copy; Copyright Creative Commons.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
