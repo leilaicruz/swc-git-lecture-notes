@@ -3,10 +3,14 @@ marp: true
 theme: default
 author: Leila Inigo de la Cruz
 paginate: true
-
+footer: 'Slides content adapted from the Programming course from the Casimir School'
 ---
 
+
+
 # Welcome to the Git lesson from the Software Carpentry! 
+
+
 
 ---
 
@@ -46,10 +50,11 @@ paginate: true
 # **What** is version control?
 ---
 
-
+## *Controlling the versions*
 - Keeping track of changes in a systematic way.
     - having access to previous versions 
-    - to know what was done 
+    - in code: to know precisely which lines where changed in the code 
+    - being able to come back to any working version
 
 
 ---
