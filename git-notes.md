@@ -117,6 +117,7 @@ git status
 ```
 
 > Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
+> Git uses this special subdirectory to store all the information about the project, including all files and sub-directories located within the project’s directory. If we ever delete the .git subdirectory, we will lose the project’s history.
 
 
 ### 3. START TRACKING CHANGES [10 min]
