@@ -65,7 +65,7 @@ git config --list --show-origin
 
 ```
 ```bash
-git config --global user.name "github-username"
+git config --global user.name "github-name"
 git config --global user.email "github-email@mail.com"
 ```
 
