@@ -24,11 +24,11 @@ footer: 'Slides content adapted from the Programming course from the Casimir Sch
 
 --- 
 
-# **Why** do we need version control?
+# **Why** do we need a more effcient way to do version control?
 
 ---
 
-## Because this 
+## Because this "version control"
 ![height:15cm width:12cm](img/phd_final_doc.png) 
 
 ---
@@ -37,20 +37,21 @@ footer: 'Slides content adapted from the Programming course from the Casimir Sch
 
 ![](img/phd_story_told_infilenames.gif)
 
---- 
+<!-- --- 
 
 ## Version management best practices   
 
 - Possible to revert back to a working version if things broke.
 - Benefit team collaboration.
-- Improve efficiency.
+- Improve efficiency. -->
 
 ---
 
-# **What** is version control?
+# **What** is version control? 
 ---
 
 ## *Controlling the versions*
+
 - Keeping track of changes in a systematic way.
     - having access to previous versions 
     - in code: to know precisely which lines where changed in the code 
@@ -75,6 +76,18 @@ footer: 'Slides content adapted from the Programming course from the Casimir Sch
 ## Git is a *distributed* version control system (VCS) that automates everything
 
 ![](img/Git-Logo.png)
+
+---
+
+- **git** was created by the creator of Linux , Linus Torvalds.
+
+- **git** is a version control software that keeps track of the entire history of a particular project , and also allows to many people to collaborate in the same project. 
+
+- **git** is a tool widely used in the software development world 
+
+- **git** prevent to generate a copy of your file for every new version you save. 
+
+- **git** + **Github** allows you to collaborate with others in a very efficient way. 
 
 ---
 

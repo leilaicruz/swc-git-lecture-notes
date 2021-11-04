@@ -110,6 +110,8 @@ cd ./patients/
 git init
 ```
 
+> Repository, or Repo, is  another word for project 
+
 #### c. Check Content and Status
 ```shell
 ls -a
