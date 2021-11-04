@@ -171,6 +171,14 @@ git status
 ```shell
  git add count-lines.py
 ```
+> Talk about the files that git can track : 
+
+    - text files (.txt, .md , .html)
+    - source code (.py , .R, etc )
+
+> For example .png , .avi , .exe can not be tracked by git "in depth" , git only will notice we have modified them if needed. 
+
+> However there are some tools developed by git now that can also track .ipynb (jupyter notebooks) which is a binary file. 
 
 > Ignore the warning about replacing LF with CRLF. |
 **Warning: LF will be replaced by CRLF in count-lines.py.
