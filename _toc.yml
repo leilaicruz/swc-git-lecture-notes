@@ -4,5 +4,6 @@ parts:
 - caption: Lecture notes 
   numbered: true
   chapters:
-  - file: git-notes
   - file: presentation-intro
+  - file: git-notes
+  - file: ssh-explanation
