@@ -110,6 +110,8 @@ cd ./patients/
 git init
 ```
 
+> Repository, or Repo, is  another word for project 
+
 #### c. Check Content and Status
 ```shell
 ls -a
@@ -171,6 +173,14 @@ git status
 ```shell
  git add count-lines.py
 ```
+> Talk about the files that git can track : 
+
+    - text files (.txt, .md , .html)
+    - source code (.py , .R, etc )
+
+> For example .png , .avi , .exe can not be tracked by git "in depth" , git only will notice we have modified them if needed. 
+
+> However there are some tools developed by git now that can also track .ipynb (jupyter notebooks) which is a binary file. 
 
 > Ignore the warning about replacing LF with CRLF. |
 **Warning: LF will be replaced by CRLF in count-lines.py.
@@ -557,6 +567,13 @@ Mac and Linux user don't have to worry about this.
     ```shell
     clip < .ssh/id_ed25519.pub
     ```
+    > if clip does not work then use 
+    
+    ```shell
+    cat  .ssh/id_ed25519.pub # copy its content to github 
+    ```
+    
+
 
 * Go to GitHub, explain the basics of the interface and add the SSH key.
 
