@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -38,6 +38,7 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -1272,6 +1273,12 @@ Mac and Linux user don’t have to worry about this.</p>
 <ul>
 <li><p>Copy public key to GitHub:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>clip &lt; .ssh/id_ed25519.pub
+</pre></div>
+</div>
+<blockquote>
+<div><p>if clip does not work then use</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cat  .ssh/id_ed25519.pub <span class="c1"># copy its content to github </span>
 </pre></div>
 </div>
 </li>

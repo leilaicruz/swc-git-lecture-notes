@@ -567,6 +567,13 @@ Mac and Linux user don't have to worry about this.
     ```shell
     clip < .ssh/id_ed25519.pub
     ```
+    > if clip does not work then use 
+    
+    ```shell
+    cat  .ssh/id_ed25519.pub # copy its content to github 
+    ```
+    
+
 
 * Go to GitHub, explain the basics of the interface and add the SSH key.
 
